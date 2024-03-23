@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const JobCard = ({
   job: {
@@ -12,6 +13,10 @@ export const JobCard = ({
     company_name,
   },
 }) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/post/${id}`);
+  };
   return (
     <>
       {" "}
@@ -30,6 +35,7 @@ export const JobCard = ({
           </div>
         </div>
         <button
+          onClick={handleClick}
           type="button"
           className="bg-gradient-to-t max-w-32 rounded-lg from-[#7E90FE] font-semibold text-white px-4 py-2 to-[#7E90FE]"
         >
