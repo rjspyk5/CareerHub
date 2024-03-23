@@ -1,11 +1,11 @@
 import React from "react";
-import { Job } from "./Job";
+import { JobCard } from "./JobCard";
 
 export const FetauredJobs = ({ jobs }) => {
   return (
-    <div>
+    <div className="grid grid-cols-2 gap-6">
       {jobs.map((el) => (
-        <Job key={el.id} job={el} />
+        <JobCard key={el.id} job={el} />
       ))}
     </div>
   );
