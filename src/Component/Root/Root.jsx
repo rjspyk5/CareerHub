@@ -4,9 +4,12 @@ import { Outlet } from "react-router-dom";
 
 export const Root = () => {
   return (
-    <div className="md:w-11/12 mx-auto">
-      <Header></Header>
-      <Outlet></Outlet>
+    <div>
+      <div className="max-w-6xl mx-auto">
+        <Header></Header>
+        <Outlet></Outlet>
+      </div>
+
       <Footer></Footer>
     </div>
   );
