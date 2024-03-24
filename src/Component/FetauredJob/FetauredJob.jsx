@@ -16,7 +16,7 @@ export const FetauredJobs = () => {
           <JobCard key={el.id} job={el} />
         ))}
       </div>
-      <div className={dataLength === jobs.length && "hidden"}>
+      <div className={dataLength === jobs.length ? "hidden" : ""}>
         <button
           onClick={() => setdataLength(jobs.length)}
           type="button"
