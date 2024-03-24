@@ -1,10 +1,13 @@
 import React from "react";
 import { useLoaderData, useParams, useRouteLoaderData } from "react-router-dom";
-
+import {
+  getIteam,
+  setIteam,
+  removeIteam,
+} from "../../../assets/utilites/localstorage";
 export const JobDetails = () => {
   const { data } = useLoaderData();
   const { id } = useParams();
-
   const {
     job_description,
     job_responsibility,
@@ -14,7 +17,9 @@ export const JobDetails = () => {
     job_title,
     contact_information: { phone, adress, email },
   } = data.find((el) => parseInt(id) === el.id);
-
+  const handleApply = (id) => {
+    setIteam(id);
+  };
   return (
     <div>
       <h1 className="text-center font-bold text-3xl py-14">Job Details</h1>
@@ -51,7 +56,12 @@ export const JobDetails = () => {
               <span className="font-medium">Job Title:</span>
               {job_title}
             </h1>
-            <button className="btn btn-sm my-5 btn-primary">Apply Now</button>
+            <button
+              onClick={() => handleApply(id)}
+              className="btn btn-sm my-5 btn-primary"
+            >
+              Apply Now
+            </button>
           </div>
         </div>
       </div>
