@@ -1,19 +1,31 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getIteam } from "../../../assets/utilites/localstorage";
-import axios from "axios";
+
 import { useLoaderData } from "react-router-dom";
+import { EachJob } from "./EachJob";
 
 export const Applied = () => {
   const { data } = useLoaderData();
-
-  const [jobsId, setjobsId] = useState([]);
+  const [jobs, setjobs] = useState([]);
+  const [displayJob, setdisplayJob] = useState([]);
 
   useEffect(() => {
     if (data.length > 0) {
       const jobsApplied = getIteam();
       const jobs = data.filter((el) => jobsApplied.includes(el.id));
-      console.log(jobs);
+      setjobs(jobs);
+      setdisplayJob(jobs);
     }
-  }, []);
-  return <div></div>;
+  }, [data]);
+
+  return (
+    <div>
+      <h1 className="text-center font-bold text-3xl py-14">Applied Jobs</h1>
+      <div className="space-y-6">
+        {displayJob.map((el) => (
+          <EachJob key={el.id} />
+        ))}
+      </div>
+    </div>
+  );
 };
