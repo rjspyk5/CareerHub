@@ -4,6 +4,7 @@ import { Home } from "./Component/Home/Home";
 import { ErrorPage } from "./Component/ErrorPage/ErrorPage";
 import axios from "axios";
 import { JobDetails } from "./Component/FetauredJob/JobDetails";
+import { Applied } from "./Component/AppliedJobs/Applied";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
         path: "/post/:id",
         element: <JobDetails />,
         loader: () => axios.get("/jobs.json"),
+      },
+      {
+        path: "/applied",
+        element: <Applied />,
       },
     ],
   },
