@@ -24,6 +24,7 @@ export const router = createBrowserRouter([
       {
         path: "/applied",
         element: <Applied />,
+        loader: () => axios.get("/jobs.json"),
       },
     ],
   },

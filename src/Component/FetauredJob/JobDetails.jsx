@@ -18,7 +18,7 @@ export const JobDetails = () => {
     contact_information: { phone, adress, email },
   } = data.find((el) => parseInt(id) === el.id);
   const handleApply = (id) => {
-    setIteam(id);
+    setIteam(parseInt(id));
   };
   return (
     <div>
