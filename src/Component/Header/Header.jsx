@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
-
 export const Header = () => {
   const [toggle, settoggle] = useState(true);
   const menu = (
